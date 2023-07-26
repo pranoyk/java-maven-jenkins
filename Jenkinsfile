@@ -1,6 +1,10 @@
    pipeline {
      agent any
 
+     tools {
+       maven 'test-mvn'
+     }
+
      stages {
        stage('Checkout') {
          steps {
