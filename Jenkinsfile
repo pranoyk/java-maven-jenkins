@@ -5,14 +5,16 @@
        stage('Checkout') {
          steps {
             echo "Checking out code..."
-            git 'https://github.com/pranoyk/java-maven-jenkins.git'
+            git url: 'https://github.com/pranoyk/java-maven-jenkins.git'
          }
        }
 
        stage('Build') {
          steps {
            echo "Building..."
-           sh 'mvn clean package'
+           dir('trucks') {
+             sh 'mvn clean package'
+           }
          }
        }
 
@@ -25,7 +27,9 @@
        stage('Package') {
          steps {
            echo "Packaging..."
-           sh 'mvn package'
+           dir('trucks') {
+             sh 'mvn package'
+           }
          }
        }
 
