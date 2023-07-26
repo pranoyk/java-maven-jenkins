@@ -5,7 +5,7 @@
        stage('Checkout') {
          steps {
             echo "Checking out code..."
-            git url: 'https://github.com/pranoyk/java-maven-jenkins.git'
+            git url: 'https://github.com/pranoyk/java-maven-jenkins.git', branch: 'main'
          }
        }
 
