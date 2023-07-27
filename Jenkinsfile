@@ -40,9 +40,7 @@
        stage('Deploy') {
          steps {
            echo "Deploying..."
-           dir('trucks') {
-             sh 'cp target/*.war ../../tomcat/webapps/'
-           }
+           sh 'cp trucks/target/trucks.war tomcat/webapps/trucks.war'
          }
        }
      }
