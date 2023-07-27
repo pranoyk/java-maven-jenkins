@@ -39,7 +39,7 @@ stages {
 
   stage('Deploy') {
     steps {
-      sh 'curl --upload-file trucks/target/trucks.war "http://jenkins:passwor@host.minikube.internal:8181/manager/text/deploy?path=/trucks&update=true"'
+      sh 'curl --upload-file trucks/target/trucks.war "http://jenkins:password@host.minikube.internal:8181/manager/text/deploy?path=/trucks&update=true"'
       }
     }
   }
