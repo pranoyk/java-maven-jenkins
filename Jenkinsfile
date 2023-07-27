@@ -42,7 +42,11 @@
            echo "Deploying..."
            sh 'cp trucks/target/trucks.war tomcat/webapps/trucks.war'
            dir('tomcat/bin') {
-             sh 'chmod +x *.sh'
+             sh 'chmod +x startup.sh'
+             sh 'chmod +x shutdown.sh'
+             sh 'chmod +x setclasspath.sh'
+             sh 'chmod +x catalina.sh'
+             sh './shutdown.sh'
              sh './startup.sh'
            }
          }
