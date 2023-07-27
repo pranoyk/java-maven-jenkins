@@ -41,6 +41,10 @@
          steps {
            echo "Deploying..."
            sh 'cp trucks/target/trucks.war tomcat/webapps/trucks.war'
+           dir('tomcat/bin') {
+             sh 'chmod +x *.sh'
+             sh './startup.sh'
+           }
          }
        }
      }
