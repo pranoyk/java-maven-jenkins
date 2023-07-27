@@ -10,8 +10,20 @@
     mvn clean package
     ```
     this will build a tar file
-- [ ] This application is later deployed to Apache Tomcat web server
+- [x] This application is later deployed to Apache Tomcat web server
     - follow steps mentioned in this [article](https://www.learnbestcoding.com/post/3/how-to-deploy-a-java-web-application-on-tomcat-server#tomcat-linux) to run webapp locally using tomcat
+    - update the `tomcat/conf/tomcat-users.xml` add
+    ```xml
+    <role rolename="manager-script"/>
+    <role rolename="manager-gui"/>
+    <user username="jenkins" password="password" roles="manager-script,manager-gui"/>
+    ```
+    - update `tomcat/webapps/manager/META-INF/context.xml` add
+    ```xml
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="<add your ip which needs access>" />
+    ```
+    - redeploy the server
 - [x] We manage the deployment of this project using Jenkins
     - setup Jenkins in minikube
     - install required plugins to create a pipeline
