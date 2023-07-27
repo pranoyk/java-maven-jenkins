@@ -11,6 +11,7 @@
     ```
     this will build a tar file
 - [ ] This application is later deployed to Apache Tomcat web server
+    - follow steps mentioned in this [article](https://www.learnbestcoding.com/post/3/how-to-deploy-a-java-web-application-on-tomcat-server#tomcat-linux) to run webapp locally using tomcat
 - [x] We manage the deployment of this project using Jenkins
     - setup Jenkins in minikube
     - install required plugins to create a pipeline
