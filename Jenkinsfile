@@ -41,7 +41,7 @@
          steps {
            echo "Deploying..."
            dir('trucks') {
-             cp 'target/*.war ../../tomcat/webapps/'
+             sh 'cp target/*.war ../../tomcat/webapps/'
            }
          }
        }
