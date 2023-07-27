@@ -39,15 +39,7 @@
 
        stage('Deploy') {
          steps {
-           echo "Deploying..."
-           sh 'cp trucks/target/trucks.war tomcat/webapps/trucks.war'
-           dir('tomcat/bin') {
-             sh 'chmod +x startup.sh'
-             sh 'chmod +x shutdown.sh'
-             sh 'chmod +x setclasspath.sh'
-             sh 'chmod +x catalina.sh'
-             sh './shutdown.sh'
-             sh './startup.sh'
+            sh 'curl --upload-file trucks/target/trucks.war "http://jenkins:passwor@localhost:8181/manager/text/deploy?path=/trucks&update=true"'
            }
          }
        }
